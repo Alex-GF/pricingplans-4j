@@ -326,7 +326,15 @@ public class PricingManagerParser {
             }
         }
 
+        if (plansHaveMultipleHighlight(plans)) {
+            throw new PricingParsingException("Multiple highlighted plans are not allowed");
+        }
+
         pricingManager.setPlans(plans);
+    }
+
+    private static boolean plansHaveMultipleHighlight(Map<String, Plan> plans) {
+        return plans.entrySet().stream().filter(plan -> plan.getValue().getHighlight()).count() > 1;
     }
 
     private static void setAddOns(Map<String, Object> map, PricingManager pricingManager) {

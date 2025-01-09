@@ -13,6 +13,7 @@ public class YamlUpdater {
     static {
         updaters.put(Version.V1_0, new V10ToV11Updater(null));
         updaters.put(Version.V1_1, new V11ToV20Updater(updaters.get(Version.V1_0)));
+        updaters.put(Version.V2_0, new V20ToV21Updater(updaters.get(Version.V1_1)));
     }
 
     public static void update(Map<String, Object> configFile) throws UpdateException {
@@ -25,7 +26,6 @@ public class YamlUpdater {
         if (updaters.get(version) == null) {
             return;
         }
-
-        updaters.get(Version.V1_1).update(configFile);
+        updaters.get(Version.V2_0).update(configFile);
     }
 }

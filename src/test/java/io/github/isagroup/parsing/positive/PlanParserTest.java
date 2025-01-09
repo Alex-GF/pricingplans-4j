@@ -98,4 +98,24 @@ public class PlanParserTest {
 
     }
 
+    @Test
+    @DisplayName(value = "When plan 'highlight' is not provided by default is false")
+    void givenNullHighlightShouldParse() {
+
+        String planName = "BASIC";
+        PricingManager pricingManager = YamlUtils.retrieveManagerFromYaml(TEST_CASES + "highlight/no-highlight.yml");
+        assertFalse(pricingManager.getPlans().get(planName).getHighlight());
+
+    }
+
+    @Test
+    @DisplayName(value = "One plan should be highlighted")
+    void givenHighlightShouldParse() {
+
+        String planName = "PRO";
+        PricingManager pricingManager = YamlUtils.retrieveManagerFromYaml(TEST_CASES + "highlight/highlight.yml");
+        assertTrue(pricingManager.getPlans().get(planName).getHighlight());
+
+    }
+
 }

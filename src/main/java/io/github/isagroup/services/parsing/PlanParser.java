@@ -61,6 +61,14 @@ public class PlanParser {
             plan.setPrice(map.get("price"));
         }
 
+        // ---------- highlight ----------
+        if (map.get("highlight") == null) {
+            map.put("highlight", false);
+        } else if (!(map.get("highlight") instanceof Boolean)) {
+            throw new PricingParsingException("plan " + planName + " received a "
+                    + map.get("highlight").getClass().getSimpleName() + " but was expecting a bool");
+        }
+        plan.setHighlight((Boolean) map.get("highlight"));
 
         plan.setUnit((String) map.get("unit"));
 

@@ -6,12 +6,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public enum Version {
-    V1_0(1, 0), V1_1(1, 1), V2_0(2, 0);
+    V1_0(1, 0), V1_1(1, 1), V2_0(2, 0), V2_1(2, 1);
 
     private final int major;
     private final int minor;
 
-    public static final Version LATEST = V2_0;
+    public static final Version LATEST = V2_1;
 
     Version(int major, int minor) {
         if (!isValid(major, minor)) {
@@ -96,6 +96,8 @@ public enum Version {
         } else if (major == 2) {
             if (minor == 0) {
                 return V2_0;
+            } else if (minor == 1) {
+                return V2_1;
             }
         }
 
@@ -112,7 +114,7 @@ public enum Version {
 
     public static boolean isValid(int major, int minor) {
         boolean oneDotVersions = major == 1 && (minor == 0 || minor == 1);
-        boolean twoDotVersions = major == 2 && minor == 0;
+        boolean twoDotVersions = major == 2 && (minor == 0 || minor == 1);
         return oneDotVersions || twoDotVersions;
     }
 

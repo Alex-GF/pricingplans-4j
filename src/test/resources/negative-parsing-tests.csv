@@ -49,6 +49,9 @@ Throw an error if 'features' is not a map;parsing/negative/features/features-is-
 Throw an error if plan 'private' is not a boolean;parsing/negative/plan/private/boolean-string-private.yml;The field "private" should be a boolean
 Throw an error if plan 'private' is not a boolean;parsing/negative/plan/private/number-private.yml;The field "private" should be a boolean
 Throw an error if plan 'private' is not a boolean;parsing/negative/plan/private/string-private.yml;The field "private" should be a boolean
+# plan.highlight
+Throw an error if plan 'highlight' is not a boolean;parsing/negative/plan/highlight/number-highlight.yml;plan BASIC received a Integer but was expecting a bool
+Throw an error if plans has multiple 'highlight' set;parsing/negative/plan/highlight/multiple-highlight.yml;Multiple highlighted plans are not allowed
 # plans
 Throw an error if 'plans' is not a map;parsing/negative/plans/plans-is-boolean.yml;The plans are not defined correctly. It should be a map of plans and their options
 Throw an error if 'plans' is not a map;parsing/negative/plans/plans-is-float.yml;The plans are not defined correctly. It should be a map of plans and their options

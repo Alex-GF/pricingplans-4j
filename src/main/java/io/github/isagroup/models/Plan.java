@@ -20,6 +20,7 @@ public class Plan {
     private Object price;
     private String unit;
     private Boolean isPrivate;
+    private Boolean highlight;
     private Map<String, Feature> features;
     private Map<String, UsageLimit> usageLimits;
 
@@ -41,6 +42,7 @@ public class Plan {
         attributes.put("price", price);
         attributes.put("unit", unit);
         attributes.put("private", isPrivate);
+        attributes.put("highlight", highlight);
 
         Map<String, Object> features = serializeFeatures().orElse(null);
         Map<String, Object> usageLimits = serializeUsageLimits().orElse(null);
